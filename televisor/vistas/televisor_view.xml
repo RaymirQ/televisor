@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+ <data>
+     <record model="ir.ui.view" id="view_televisor_form">
+        <field name="name">vista form del formulario</field>
+        <field name="model">televisor.televisor</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="televisor">
+                <group>
+                    <field name="marca" />
+                    <field name="modelo" />
+                    <field name="tamano"/>
+                    <field name="color"/>
+                    <field name="precio"/>
+                    <field name="fecha_p"/>
+                    <field name="active"/>
+                </group>
+                
+            </form>
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="view_televisor_tree">
+        <field name="name">vista tree del formulario</field>
+        <field name="model">televisor.televisor</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree string="televisor">
+				<field name="marca" />
+                <field name="modelo"/>
+                <field name="tamano"/>
+                <field name="color"/>
+                <field name="precio"/>
+                <field name="fecha_p"/>
+
+            </tree>
+        </field>
+    </record>
+    
+    
+    <record model="ir.actions.act_window" id="action_televisor">
+        <field name="name">televisor</field>
+        <field name="res_model">televisor.televisor</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    
+    <menuitem 
+        name="televisor" 
+        id="televisor_horizontal_menu" 
+        sequence="5" />
+    <menuitem 
+        name="Formularios de Pedidos" 
+        id="FormularioP_vertical_menu" 
+        parent="televisor_horizontal_menu" 
+        sequence="5"/>
+        
+    <menuitem 
+        name="Televisor" 
+        id="televisor_subvertical_menu" 
+        parent="FormularioP_vertical_menu"
+        action="action_televisor" 
+        sequence="5"/>
+
+ </data>
+</openerp>
